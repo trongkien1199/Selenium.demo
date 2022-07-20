@@ -4,24 +4,149 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84de92c4-0685-49f0-b9c4-4ffe6a5af715" name="Changes" comment="" />
+    <list default="true" id="84de92c4-0685-49f0-b9c4-4ffe6a5af715" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LoginTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium-grid/geckodriver" beforeDir="false" afterPath="$PROJECT_DIR$/selenium-grid/geckodriver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium-grid/hubconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/selenium-grid/hubconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium-grid/nodeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/selenium-grid/nodeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium-grid/start-nodes-command.md" beforeDir="false" afterPath="$PROJECT_DIR$/selenium-grid/start-nodes-command.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bandoso/driver/DriverBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bandoso/driver/DriverBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bandoso/driver/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bandoso/driver/DriverFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bandoso/model/pages/DashboardPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bandoso/model/pages/DashboardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bandoso/model/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bandoso/model/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bandoso/test/TestLoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bandoso/test/TestLoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bandoso/utils/Webdriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bandoso/utils/Webdriver.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2C7VjAQ7chOat5HvzZ7W1PYeadg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/nexle/com.bandoso"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/test/java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/selenium-grid" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.TestLoginPage.forgetPassword">
+    <configuration name="TestLoginPage" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.bandoso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bandoso.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bandoso.test" />
+      <option name="MAIN_CLASS_NAME" value="com.bandoso.test.TestLoginPage" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLoginPage.forgetPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.bandoso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bandoso.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bandoso.test" />
+      <option name="MAIN_CLASS_NAME" value="com.bandoso.test.TestLoginPage" />
+      <option name="METHOD_NAME" value="forgetPassword" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLoginPage.loginWithCorrectUser" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.bandoso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bandoso.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bandoso.test" />
+      <option name="MAIN_CLASS_NAME" value="com.bandoso.test.TestLoginPage" />
+      <option name="METHOD_NAME" value="loginWithCorrectUser" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLoginPage.loginWithEmptyUserAndPass" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.bandoso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bandoso.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bandoso.test" />
+      <option name="MAIN_CLASS_NAME" value="com.bandoso.test.TestLoginPage" />
+      <option name="METHOD_NAME" value="loginWithEmptyUserAndPass" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/home/nexle/com.bandoso/LoginTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com.bandoso" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/LoginTest.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TestLoginPage.forgetPassword" />
+        <item itemvalue="TestNG.TestLoginPage.loginWithEmptyUserAndPass" />
+        <item itemvalue="TestNG./home/nexle/com.bandoso/LoginTest.xml" />
+        <item itemvalue="TestNG.TestLoginPage.loginWithCorrectUser" />
+        <item itemvalue="TestNG.TestLoginPage" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,5 +157,19 @@
       <updated>1658153744770</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

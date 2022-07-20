@@ -1,6 +1,6 @@
-package java.com.bubble.driver;
+package com.bandoso.driver;
 
-import com.bubble.utils.Webdriver;
+import com.bandoso.utils.Webdriver;
 import org.openqa.selenium.WebDriver;
 
 public class DriverFactory {
@@ -10,6 +10,12 @@ public class DriverFactory {
     WebDriver getWebDriver() {
         if(webDriver == null){
             webDriver = Webdriver.getChromeDriver();
+        }
+        return webDriver;
+    }
+    WebDriver getWebDriver(String browserName) {
+        if(webDriver == null){
+            webDriver = Webdriver.getDriver(browserName);
         }
         return webDriver;
     }

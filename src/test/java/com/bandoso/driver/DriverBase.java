@@ -1,4 +1,4 @@
-package java.com.bubble.driver;
+package com.bandoso.driver;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -26,6 +26,9 @@ public class DriverBase {
     }
     public static WebDriver getDriver(){
         return driverThread.get().getWebDriver();
+    }
+    public static WebDriver getDriver(String browserName){
+        return driverThread.get().getWebDriver(browserName);
     }
     @AfterSuite(alwaysRun = true)
     public void afterSuite(){

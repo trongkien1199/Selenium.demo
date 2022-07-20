@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Smoke Test" thread-count="4">
+    <test name = "Login Test">
+        <classes>
+            <class name = "com.bubble.test.TestLoginPage">
+                <methods>
+                    <include name="registerUser"/>
+                    <include name="loginWithEmptyUserAndPass"/>
+                    <include name="loginWithEmptyUser"/>
+                    <include name="loginWithEmptyPassword"/>
+                    <include name="loginWithInvalidUser"/>
+                    <include name="loginWithCorrectUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

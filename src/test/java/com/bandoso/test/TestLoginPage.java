@@ -33,14 +33,18 @@ public class TestLoginPage extends DriverBase {
     private String expectedWelcomeTextAfteLogin = "Xin chào";
     private By maskXpath = By.xpath("//div[@class='ant-modal-mask']") ;
     private String expectedPopUpContent = "Vui lòng liên hệ người quản trị";
+    private int ICON_USER_IDEX = 0;
+    private int ICON_PASSWORD_IDEX = 1;
     private WebDriver driver;
     
 //    private   WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @Test(priority = 1)
-    @Parameters({"browser"})
-    public void forgetPassword(String browser) throws InterruptedException {
-        driver = getDriver(browser);
+//    @Parameters({"browser"})
+    public void forgetPassword() throws InterruptedException {
+//    public void forgetPassword(String browser) throws InterruptedException{
+//        driver = getDriver(browser);
+        driver = getDriver();
         driver.get(loginUrl);
         driver.manage().window().maximize();
         LoginPage loginPage = new LoginPage(driver);
@@ -64,11 +68,11 @@ public class TestLoginPage extends DriverBase {
     public void loginWithEmptyUserAndPass(){
         driver = getDriver();
         LoginPage loginPage  = new LoginPage(driver);
-        driver.get(loginUrl);
         loginPage.clickLoginButton();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(loginPage.explainErrsXpathBy()));
         List<WebElement>  listExplainErrEles = loginPage.explainErrEles();
+        List<WebElement> inputIcons = loginPage.inputIconEles();
         // check if 2 wrong items
         Assert.assertEquals(listExplainErrEles.size(),2);
         String actualUsernameErr = listExplainErrEles.get(0).getText();
@@ -79,6 +83,10 @@ public class TestLoginPage extends DriverBase {
         for(WebElement e : listExplainErrEles){
             Assert.assertEquals(e.getCssValue("color").matches(expectedErrColor), true);
         }
+        for(WebElement e : inputIcons){
+            Assert.assertEquals(e.getCssValue("color").matches(expectedErrColor), true);
+        }
+//        for (WebElement e : )
         Assert.assertEquals(actualPasswordFieldBorderColor.matches(expectedErrColor), true);
         Assert.assertEquals(actualUsernameFieldBorderColor.matches(expectedErrColor),true);
         // check if right error text
@@ -95,12 +103,12 @@ public class TestLoginPage extends DriverBase {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(loginPage.explainErrsXpathBy()));
         //check if there is only one wrong item
-        Assert.assertEquals(loginPage.explainErrEles().size(),1);
         String actualUserErr = loginPage.explainErrEles().get(0).getText();
         String actualUsernameFieldBorderColor = loginPage.userFieldEle().getCssValue("border-color");
         // check if right error text
         Assert.assertEquals(actualUserErr, expectedUsernameErr);
         //check if right color
+        Assert.assertEquals(loginPage.inputIconEles().get(ICON_USER_IDEX).getCssValue("color").matches(expectedErrColor),true);
         Assert.assertEquals(loginPage.explainErrEles().get(0).getCssValue("color").matches(expectedErrColor), true);
         Assert.assertEquals(actualUsernameFieldBorderColor.matches(expectedErrColor),true);
 
@@ -127,7 +135,7 @@ public class TestLoginPage extends DriverBase {
         Assert.assertEquals(actualPasswordErr, expectedPasswordErr);
         //check if right color
         String actualPasswordFieldBorderColor = loginPage.passwordFieldEle().getCssValue("border-color");
-
+        Assert.assertEquals(loginPage.inputIconEles().get(ICON_PASSWORD_IDEX).getCssValue("color").matches(expectedErrColor),true);
         Assert.assertEquals(loginPage.explainErrEles().get(0).getCssValue("color").matches(expectedErrColor), true);
         Assert.assertEquals(actualPasswordFieldBorderColor.matches(expectedErrColor), true);
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn()));
@@ -163,6 +171,11 @@ public class TestLoginPage extends DriverBase {
         driver = getDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
+        //clear text in fields
+        loginPage.password().sendKeys(Keys.CONTROL + "a");
+        loginPage.password().sendKeys(Keys.DELETE);
+        loginPage.username().sendKeys(Keys.CONTROL + "a");
+        loginPage.username().sendKeys(Keys.DELETE);
         System.out.println(driver.getTitle());
         loginPage
                 .inputUsername(username)

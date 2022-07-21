@@ -21,6 +21,8 @@ public class LoginPage {
     private By forgotPasswordPopUpXpath = By.xpath("//div[@class='ant-modal-content']");
     private By popUpCloseBtnXpath = By.xpath("//div[@class='ant-modal-content']//button[@class='ant-modal-close']");
     private By popUpHeaderXpath = By.xpath("//div[@class='ant-modal-body']//span");
+
+    private By inputIconsXpath = By.xpath("//div[@class='Login__InputWrapper-sc-1jjbxc7-2 grRTZl']//span[@role='img']");
     public LoginPage(WebDriver driver){
         this.driver = driver;
     }
@@ -61,6 +63,9 @@ public class LoginPage {
     }
     public WebElement popUpHeaderEle(){
         return driver.findElement(popUpHeaderXpath);
+    }
+    public  List<WebElement> inputIconEles(){
+        return driver.findElements(inputIconsXpath);
     }
     public By explainErrsXpathBy(){
         return this.explainErrsXpath;

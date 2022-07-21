@@ -40,11 +40,10 @@ public class TestLoginPage extends DriverBase {
 //    private   WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @Test(priority = 1)
-//    @Parameters({"browser"})
-    public void forgetPassword() throws InterruptedException {
-//    public void forgetPassword(String browser) throws InterruptedException{
-//        driver = getDriver(browser);
-        driver = getDriver();
+    @Parameters({"browser"})
+//    public void forgetPassword() throws InterruptedException {
+    public void forgetPassword(String browser) throws InterruptedException{
+        driver = getDriver(browser);
         driver.get(loginUrl);
         driver.manage().window().maximize();
         LoginPage loginPage = new LoginPage(driver);

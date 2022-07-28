@@ -43,10 +43,6 @@ public class TestLoginPage extends DriverBase {
 
     @Test(priority = 1)
     @Parameters({"browser"})
-<<<<<<< HEAD
-=======
-//    public void forgetPassword() throws InterruptedException {
->>>>>>> master
     public void forgetPassword(String browser) throws InterruptedException{
         driver = getDriver(browser);
         driver.get(loginUrl);
@@ -173,6 +169,7 @@ public class TestLoginPage extends DriverBase {
     @Test(priority = 6, dataProvider = "loginData")
     public void loginWithCorrectUser(String username, String password,String expectedUsernameAfterLogin) throws InterruptedException {
         driver = getDriver();
+        driver.get(loginUrl);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
         //clear text in fields
@@ -205,10 +202,6 @@ public class TestLoginPage extends DriverBase {
         wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardPage.getLogOutButtonXpath()));
         Thread.sleep(500);
         dashboardPage.logOutButton().click();
-    }
-    @AfterSuite
-    private void quitBrowser(){
-            driver.quit();
     }
     @DataProvider
     public Object[][] loginData(){

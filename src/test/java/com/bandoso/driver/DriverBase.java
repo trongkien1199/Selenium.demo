@@ -52,7 +52,6 @@ public class DriverBase {
             int min = calendar.get(Calendar.MINUTE);
             int sec =calendar.get(Calendar.SECOND);
             String takenTime = y + "-" + (month+1) + "-" + date + "-" + hr + "-" + min + "-" + sec;
-
             String fileLocation = System.getProperty("user.dir").concat("/screenshot/" + testMethod +takenTime+ ".png");
             System.out.println(fileLocation);
 //            3.Save screen shot in System

@@ -1,33 +1,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Smoke Test" parallel="classes" thread-count="4">
+<suite name = "Smoke Test" parallel="tests" thread-count="4">
     <test name = "Login Test - Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name = "com.bandoso.test.TestLoginPage">
-                <methods>
-                    <include name="forgetPassword"/>
-                    <include name="loginWithEmptyUserAndPass"/>
-                    <include name="loginWithEmptyUser"/>
-                    <include name="loginWithEmptyPassword"/>
-                    <include name="loginWithInvalidUser"/>
-                    <include name="loginWithCorrectUser"/>
-                </methods>
             </class>
         </classes>
     </test>
     <test name = "Login Test -- FF">
-        <parameter name="browser" value="firefor"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name = "com.bandoso.test.TestLoginPage">
-                <methods>
-                    <include name="forgetPassword"/>
-                    <include name="loginWithEmptyUserAndPass"/>
-                    <include name="loginWithEmptyUser"/>
-                    <include name="loginWithEmptyPassword"/>
-                    <include name="loginWithInvalidUser"/>
-                    <include name="loginWithCorrectUser"/>
-                </methods>
             </class>
         </classes>
     </test>
@@ -35,14 +19,6 @@
         <parameter name="browser" value="MicrosoftEdge"></parameter>
         <classes>
             <class name = "com.bandoso.test.TestLoginPage">
-                <methods>
-                    <include name="forgetPassword"/>
-                    <include name="loginWithEmptyUserAndPass"/>
-                    <include name="loginWithEmptyUser"/>
-                    <include name="loginWithEmptyPassword"/>
-                    <include name="loginWithInvalidUser"/>
-                    <include name="loginWithCorrectUser"/>
-                </methods>
             </class>
         </classes>
     </test>

@@ -17,6 +17,7 @@ public class LoginPage {
     private By alertXpath = By.xpath("//div[@class='ant-notification-notice ant-notification-notice-warning ant-notification-notice-closable']");
     private By alertTitle = By.xpath("//div[@class='ant-notification-notice-message']");
     private By alertContent = By.xpath("//div[@class='ant-notification-notice-description']");
+    private By alertCloseBtnXpath = By.xpath("//span[@class='ant-notification-close-x']");
     private By forgotPasswordXpath = By.xpath("//div[@class='Login__ForgotPasswordWrapper-sc-1jjbxc7-4 loZlaB']//span");
     private By forgotPasswordPopUpXpath = By.xpath("//div[@class='ant-modal-content']");
     private By popUpCloseBtnXpath = By.xpath("//div[@class='ant-modal-content']//button[@class='ant-modal-close']");
@@ -48,6 +49,9 @@ public class LoginPage {
 
     public WebElement loginBtn(){
         return driver.findElement(loginBtnXpath);
+    }
+    public WebElement alertCloseBtn(){
+        return driver.findElement(alertCloseBtnXpath);
     }
     public List<WebElement> explainErrEles() {
         return driver.findElements(explainErrsXpath);

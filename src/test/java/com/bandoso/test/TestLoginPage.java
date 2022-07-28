@@ -3,6 +3,7 @@ package com.bandoso.test;
 import com.bandoso.driver.DriverBase;
 import com.bandoso.model.pages.DashboardPage;
 import com.bandoso.model.pages.LoginPage;
+import com.bandoso.utils.ExcelReaderUtil;
 import com.bandoso.utils.Webdriver;
 import net.bytebuddy.description.annotation.AnnotationSource;
 import org.openqa.selenium.By;
@@ -12,10 +13,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import javax.xml.bind.Element;
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 
@@ -36,12 +40,13 @@ public class TestLoginPage extends DriverBase {
     private int ICON_USER_IDEX = 0;
     private int ICON_PASSWORD_IDEX = 1;
     private WebDriver driver;
-    
-//    private   WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @Test(priority = 1)
     @Parameters({"browser"})
+<<<<<<< HEAD
+=======
 //    public void forgetPassword() throws InterruptedException {
+>>>>>>> master
     public void forgetPassword(String browser) throws InterruptedException{
         driver = getDriver(browser);
         driver.get(loginUrl);
@@ -59,7 +64,7 @@ public class TestLoginPage extends DriverBase {
         Assert.assertEquals(driver.findElements(maskXpath).size(),1);
         //Close popup
         loginPage.popUpCloseBtnEle().click();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         //Check the mask disappear when dismissing the popup
         Assert.assertEquals(driver.findElements(maskXpath).size(),0);
     }
@@ -112,16 +117,18 @@ public class TestLoginPage extends DriverBase {
         Assert.assertEquals(actualUsernameFieldBorderColor.matches(expectedErrColor),true);
 
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn()));
-        Thread.sleep(1000);
-        //clear text
-        loginPage.password().sendKeys(Keys.CONTROL + "a");
-        loginPage.password().sendKeys(Keys.DELETE);
     }
     @Test(priority = 4)
     public void loginWithEmptyPassword() throws InterruptedException {
         driver = getDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
+        //clear value in fields
+        loginPage.password().sendKeys(Keys.CONTROL + "a");
+        loginPage.password().sendKeys(Keys.DELETE);
+        loginPage.username().sendKeys(Keys.CONTROL + "a");
+        loginPage.username().sendKeys(Keys.DELETE);
+
         wait.until(ExpectedConditions.visibilityOf(loginPage.password()));
         loginPage
                 .inputUsername(username)
@@ -138,9 +145,6 @@ public class TestLoginPage extends DriverBase {
         Assert.assertEquals(loginPage.explainErrEles().get(0).getCssValue("color").matches(expectedErrColor), true);
         Assert.assertEquals(actualPasswordFieldBorderColor.matches(expectedErrColor), true);
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn()));
-        Thread.sleep(1000);
-        loginPage.username().sendKeys(Keys.CONTROL + "a");
-        loginPage.username().sendKeys(Keys.DELETE);
     }
 
     @Test(priority = 5)
@@ -148,6 +152,13 @@ public class TestLoginPage extends DriverBase {
         driver = getDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
+        // clear values in fields
+        loginPage.password().sendKeys(Keys.CONTROL + "a");
+        loginPage.password().sendKeys(Keys.DELETE);
+        loginPage.username().sendKeys(Keys.CONTROL + "a");
+        loginPage.username().sendKeys(Keys.DELETE);
+
+        //login
         loginPage
                 .inputUsername(username)
                 .inputPassword("password")
@@ -156,17 +167,11 @@ public class TestLoginPage extends DriverBase {
         //check alert title
         String actualAlertTitle = driver.findElement(loginPage.getAlertTitle()).getText();
         Assert.assertEquals(actualAlertTitle, expectedAlertTitle);
+        loginPage.alertCloseBtn().click();
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn()));
-        Thread.sleep(1000);
-        // clear
-        loginPage.password().sendKeys(Keys.CONTROL + "a");
-        loginPage.password().sendKeys(Keys.DELETE);
-        loginPage.username().sendKeys(Keys.CONTROL + "a");
-        loginPage.username().sendKeys(Keys.DELETE);
-        Thread.sleep(1000);
     }
-    @Test(priority = 6)
-    public void loginWithCorrectUser() throws InterruptedException {
+    @Test(priority = 6, dataProvider = "loginData")
+    public void loginWithCorrectUser(String username, String password,String expectedUsernameAfterLogin) throws InterruptedException {
         driver = getDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
@@ -195,7 +200,32 @@ public class TestLoginPage extends DriverBase {
         //Check if check if side menu is present and the first item is selected
         Assert.assertEquals(dashboardPage.menuItemsEles().size()>0 ,true);
         Assert.assertEquals(dashboardPage.menuItemsEles().get(0).getAttribute("class").contains("selected"), true);
-        Thread.sleep(1000);
-        driver.quit();
+        Thread.sleep(500);
+        dashboardPage.dropDownLogOutEle().click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardPage.getLogOutButtonXpath()));
+        Thread.sleep(500);
+        dashboardPage.logOutButton().click();
+    }
+    @AfterSuite
+    private void quitBrowser(){
+            driver.quit();
+    }
+    @DataProvider
+    public Object[][] loginData(){
+        String excelFileName = "Login.xlsx";
+        File excelFileLocation = new File(System.getProperty("user.dir") + "/data/" +excelFileName);
+        String sheetName = "accounts";
+        int startRowIndex = 1;
+        int startColIndex = 0;
+        ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(excelFileLocation, sheetName, startRowIndex, startColIndex);
+        int totalRows = excelReaderUtil.getTotalRows();
+        int totalCols = excelReaderUtil.getTotalCols();
+        Object[][] loginData = new Object[totalRows - startRowIndex][totalCols - startColIndex];
+        for (int startRow = startRowIndex; startRow < totalRows; startRow++){
+            for (int startCol = startColIndex; startCol < totalCols; startCol++){
+                loginData[startRow - startRowIndex][startCol]= excelReaderUtil.getCellValue(startRow, startCol);
+            }
+        }
+        return loginData;
     }
 }

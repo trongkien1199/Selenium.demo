@@ -37,7 +37,7 @@ public class Webdriver {
         RemoteWebDriver remoteWebDriver;
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setPlatform(Platform.ANY);
-        desiredCapabilities.setBrowserName("chrome");
+        desiredCapabilities.setBrowserName("firefox");
 
         try{
             remoteWebDriver = new RemoteWebDriver( new URL("http://172.18.0.1:4444/wd/hub"), desiredCapabilities);

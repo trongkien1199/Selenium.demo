@@ -43,6 +43,10 @@ public class TestLoginPage extends DriverBase {
 
     @Test(priority = 1)
     @Parameters({"browser"})
+<<<<<<< HEAD
+=======
+//    public void forgetPassword() throws InterruptedException {
+>>>>>>> master
     public void forgetPassword(String browser) throws InterruptedException{
         driver = getDriver(browser);
         driver.get(loginUrl);

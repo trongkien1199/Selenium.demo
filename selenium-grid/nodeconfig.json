@@ -16,6 +16,11 @@
       "browserName": "MicrosoftEdge",
       "maxInstances": 2,
       "seleniumProtocol": "WebDriver"
+    },
+    {
+      "browserName": "safari",
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
     }
   ],
   "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",

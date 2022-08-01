@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.URL;
 
@@ -16,7 +17,7 @@ public class Webdriver {
 //        //For Chrome driver
 //        String path = System.getProperty("user.dir");
 //        String chromeDriverPath = path + "/selenium-grid/chromedriver";
-//        System.setProperty("webdriver.chromer.driver", chromeDriverPath);
+//        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 //        System.out.println("get web");
 //        return new ChromeDriver();
 //        For FF driver
@@ -32,7 +33,7 @@ public class Webdriver {
 //        System.out.println(edgeDriverPath);
 //        System.setProperty("webdriver.edge.driver", edgeDriverPath);
 //        return new EdgeDriver();
-
+//          return new SafariDriver();
 //        ========================================== Use selenium grid ==================================
         RemoteWebDriver remoteWebDriver;
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -40,7 +41,7 @@ public class Webdriver {
         desiredCapabilities.setBrowserName("firefox");
 
         try{
-            remoteWebDriver = new RemoteWebDriver( new URL("http://172.18.0.1:4444/wd/hub"), desiredCapabilities);
+            remoteWebDriver = new RemoteWebDriver( new URL("http://192.168.1.145:4444/wd/hub"), desiredCapabilities);
         }catch (Exception e){
             throw new RuntimeException(e.toString());
         }
@@ -58,7 +59,7 @@ public class Webdriver {
             desiredCapabilities.setBrowserName("MicrosoftEdge");
         }
         try{
-            remoteWebDriver = new RemoteWebDriver( new URL("http://172.18.0.1:4444/wd/hub"), desiredCapabilities);
+            remoteWebDriver = new RemoteWebDriver( new URL("http://192.168.1.145:4444/wd/hub"), desiredCapabilities);
         }catch (Exception e){
             throw new RuntimeException(e.toString());
         }

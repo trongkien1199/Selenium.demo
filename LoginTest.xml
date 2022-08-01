@@ -22,4 +22,11 @@
             </class>
         </classes>
     </test>
+    <test name = "Login Test -- safari">
+        <parameter name="browser" value="safari"></parameter>
+        <classes>
+            <class name = "com.bandoso.test.TestLoginPage">
+            </class>
+        </classes>
+    </test>
 </suite>

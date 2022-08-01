@@ -113,6 +113,7 @@ public class TestLoginPage extends DriverBase {
         Assert.assertEquals(actualUsernameFieldBorderColor.matches(expectedErrColor),true);
 
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginBtn()));
+        Thread.sleep(1000);
     }
     @Test(priority = 4)
     public void loginWithEmptyPassword() throws InterruptedException {
@@ -120,10 +121,10 @@ public class TestLoginPage extends DriverBase {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
         //clear value in fields
-        loginPage.password().sendKeys(Keys.CONTROL + "a");
-        loginPage.password().sendKeys(Keys.DELETE);
-        loginPage.username().sendKeys(Keys.CONTROL + "a");
-        loginPage.username().sendKeys(Keys.DELETE);
+        loginPage.password().sendKeys(Keys.COMMAND + "a");
+        loginPage.password().sendKeys(Keys.BACK_SPACE);
+        loginPage.username().sendKeys(Keys.COMMAND + "a");
+        loginPage.username().sendKeys(Keys.BACK_SPACE);
 
         wait.until(ExpectedConditions.visibilityOf(loginPage.password()));
         loginPage
@@ -149,10 +150,10 @@ public class TestLoginPage extends DriverBase {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
         // clear values in fields
-        loginPage.password().sendKeys(Keys.CONTROL + "a");
-        loginPage.password().sendKeys(Keys.DELETE);
-        loginPage.username().sendKeys(Keys.CONTROL + "a");
-        loginPage.username().sendKeys(Keys.DELETE);
+        loginPage.password().sendKeys(Keys.COMMAND + "a");
+        loginPage.password().sendKeys(Keys.BACK_SPACE);
+        loginPage.username().sendKeys(Keys.COMMAND + "a");
+        loginPage.username().sendKeys(Keys.BACK_SPACE);
 
         //login
         loginPage
@@ -169,14 +170,13 @@ public class TestLoginPage extends DriverBase {
     @Test(priority = 6, dataProvider = "loginData")
     public void loginWithCorrectUser(String username, String password,String expectedUsernameAfterLogin) throws InterruptedException {
         driver = getDriver();
-        driver.get(loginUrl);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         LoginPage loginPage  = new LoginPage(driver);
         //clear text in fields
-        loginPage.password().sendKeys(Keys.CONTROL + "a");
-        loginPage.password().sendKeys(Keys.DELETE);
-        loginPage.username().sendKeys(Keys.CONTROL + "a");
-        loginPage.username().sendKeys(Keys.DELETE);
+        loginPage.password().sendKeys(Keys.COMMAND + "a");
+        loginPage.password().sendKeys(Keys.BACK_SPACE);
+        loginPage.username().sendKeys(Keys.COMMAND + "a");
+        loginPage.username().sendKeys(Keys.BACK_SPACE);
         System.out.println(driver.getTitle());
         loginPage
                 .inputUsername(username)

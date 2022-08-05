@@ -42,13 +42,9 @@ public class TestLoginPage extends DriverBase {
     private WebDriver driver;
 
     @Test(priority = 1)
-    @Parameters({"browser"})
-<<<<<<< HEAD
-=======
-//    public void forgetPassword() throws InterruptedException {
->>>>>>> master
-    public void forgetPassword(String browser) throws InterruptedException{
-        driver = getDriver(browser);
+//    @Parameters({"browser"})
+    public void forgetPassword() throws InterruptedException{
+        driver = getDriver();
         driver.get(loginUrl);
         driver.manage().window().maximize();
         LoginPage loginPage = new LoginPage(driver);
@@ -205,10 +201,6 @@ public class TestLoginPage extends DriverBase {
         wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardPage.getLogOutButtonXpath()));
         Thread.sleep(500);
         dashboardPage.logOutButton().click();
-    }
-    @AfterSuite
-    private void quitBrowser(){
-            driver.quit();
     }
     @DataProvider
     public Object[][] loginData(){

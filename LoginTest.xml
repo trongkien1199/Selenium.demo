@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name = "Smoke Test" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="com.bandoso.listeners.SuiteListener"/>
+    </listeners>
     <test name = "Login Test - Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
@@ -8,18 +11,18 @@
             </class>
         </classes>
     </test>
-    <test name = "Login Test -- FF">
-        <parameter name="browser" value="firefox"></parameter>
-        <classes>
-            <class name = "com.bandoso.test.TestLoginPage">
-            </class>
-        </classes>
-    </test>
-    <test name = "Login Test -- EDGE">
-        <parameter name="browser" value="MicrosoftEdge"></parameter>
-        <classes>
-            <class name = "com.bandoso.test.TestLoginPage">
-            </class>
-        </classes>
-    </test>
+<!--    <test name = "Login Test &#45;&#45; FF">-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+<!--        <classes>-->
+<!--            <class name = "com.bandoso.test.TestLoginPage">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name = "Login Test &#45;&#45; EDGE">-->
+<!--        <parameter name="browser" value="MicrosoftEdge"></parameter>-->
+<!--        <classes>-->
+<!--            <class name = "com.bandoso.test.TestLoginPage">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

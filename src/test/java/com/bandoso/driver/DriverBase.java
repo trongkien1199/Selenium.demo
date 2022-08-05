@@ -30,6 +30,19 @@ public class DriverBase {
     public static WebDriver getDriver(String browserName){
         return driverThread.get().getWebDriver(browserName);
     }
+    @BeforeSuite(alwaysRun = true)
+    public void beforeSuite(){
+        //Delete screenshot
+        File file = new File(System.getProperty("user.dir").concat("/screenshot"));
+        String[] myFiles;
+        if (file.isDirectory()) {
+            myFiles = file.list();
+            for (int i = 0; i < myFiles.length; i++) {
+                File myFile = new File(file, myFiles[i]);
+                myFile.delete();
+            }
+        }
+    }
     @AfterSuite(alwaysRun = true)
     public void afterSuite(){
         for(DriverFactory driver : webdriverThreadPool){

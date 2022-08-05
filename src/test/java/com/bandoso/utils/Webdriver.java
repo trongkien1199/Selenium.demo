@@ -40,7 +40,7 @@ public class Webdriver {
         desiredCapabilities.setBrowserName("firefox");
 
         try{
-            remoteWebDriver = new RemoteWebDriver( new URL("http://172.18.0.1:4444/wd/hub"), desiredCapabilities);
+            remoteWebDriver = new RemoteWebDriver( new URL("http://localhost:4444/wd/hub"), desiredCapabilities);
         }catch (Exception e){
             throw new RuntimeException(e.toString());
         }
@@ -58,7 +58,7 @@ public class Webdriver {
             desiredCapabilities.setBrowserName("MicrosoftEdge");
         }
         try{
-            remoteWebDriver = new RemoteWebDriver( new URL("http://172.18.0.1:4444/wd/hub"), desiredCapabilities);
+            remoteWebDriver = new RemoteWebDriver( new URL("http://localhost:4444/wd/hub"), desiredCapabilities);
         }catch (Exception e){
             throw new RuntimeException(e.toString());
         }
